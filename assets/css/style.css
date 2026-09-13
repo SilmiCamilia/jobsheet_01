@@ -1,3 +1,4 @@
+/* ===== Reset & Base ===== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -20,6 +21,7 @@ a:hover {
     text-decoration: underline;
 }
 
+/* ===== Header & Navbar ===== */
 header {
     background-color: #1d5b8a;
     color: #fff;
@@ -45,6 +47,18 @@ header nav a {
     font-weight: 500;
 }
 
+/* ===== Hamburger ===== */
+#menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* ===== Main Layout ===== */
 main {
     max-width: 1000px;
     margin: 2rem auto;
@@ -64,6 +78,7 @@ section h2 {
     color: #1d5b8a;
 }
 
+/* ===== Kartu Statistik ===== */
 main section:nth-of-type(2) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -87,6 +102,12 @@ main section:nth-of-type(2) article p {
     font-size: 1.8rem;
     font-weight: 700;
     color: #1d5b8a;
+}
+
+/* ===== Tabel ===== */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
 }
 
 table {
@@ -133,6 +154,7 @@ td button:last-of-type {
     color: #fff;
 }
 
+/* ===== Form ===== */
 form p {
     margin-bottom: 1rem;
 }
@@ -168,9 +190,71 @@ form button[type="submit"]:hover {
     background-color: #164869;
 }
 
+/* ===== Footer ===== */
 footer {
     text-align: center;
     padding: 1.25rem;
     color: #7a8794;
     font-size: 0.9rem;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 768px) {
+
+    main section:nth-of-type(2) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header nav ul {
+        gap: 0.8rem;
+    }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+
+    header {
+        position: relative;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    header nav {
+        display: none;
+        width: 100%;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 0;
+        margin-top: 1rem;
+    }
+
+    header nav li {
+        padding: 0.6rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    #menu-toggle:checked + .hamburger + nav {
+        display: block;
+    }
+
+    main {
+        margin: 1rem auto;
+        padding: 0 1rem;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    main section:nth-of-type(2) {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        min-width: 700px;
+    }
 }
