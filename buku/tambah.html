@@ -11,8 +11,12 @@
     <header>
         <h1>SIMPUS-Mini</h1>
 
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="hamburger">☰</label>
+        <button
+            type="button"
+            id="nav-toggle-btn"
+            aria-label="Menu">
+            ☰
+        </button>
 
         <nav>
             <ul>
@@ -29,7 +33,7 @@
         <section>
             <h2>Form Tambah Buku</h2>
 
-            <form>
+            <form id="form-tambah">
                 <p>
                     <label for="judul">Judul</label><br>
                     <input type="text" id="judul" name="judul" required>
@@ -53,12 +57,18 @@
                 <p>
                     <button type="submit">Simpan</button>
                 </p>
+                <p>
+                <label for="isbn">ISBN</label><br>
+                <input type="text" id="isbn" name="isbn">
+                </p>
             </form>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 3</p>
+        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 5</p>
     </footer>
+
+    <script src="../assets/js/app.js"></script>
 </body>
 </html>

@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SIMPUS-Mini | Daftar Anggota</title>
+
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
+
     <header>
         <h1>SIMPUS-Mini</h1>
 
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="hamburger">☰</label>
+        <button
+            type="button"
+            id="nav-toggle-btn"
+            aria-label="Menu">
+            ☰
+        </button>
 
         <nav>
             <ul>
@@ -25,67 +33,93 @@
         </nav>
     </header>
 
+
     <main>
+
         <section>
+
             <h2>Daftar Anggota</h2>
 
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nama</th>
-                            <th>No. Anggota</th>
-                            <th>Email</th>
-                            <th>Alamat</th>
-                            <th>No. HP</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>Silmi Camilia</td>
-                            <td>AG001</td>
-                            <td>silmi@gmail.com</td>
-                            <td>Malang</td>
-                            <td>081234567890</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button">Hapus</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Alya Putri</td>
-                            <td>AG002</td>
-                            <td>alya@gmail.com</td>
-                            <td>Malang</td>
-                            <td>081234567891</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button">Hapus</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Rizky Maulana</td>
-                            <td>AG003</td>
-                            <td>rizky@gmail.com</td>
-                            <td>Malang</td>
-                            <td>081234567892</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button">Hapus</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Cari anggota...">
             </div>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>No. Anggota</th>
+                        <th>Email</th>
+                        <th>Alamat</th>
+                        <th>No. HP</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Silmi Camilia</td>
+                        <td>AG001</td>
+                        <td>silmi@gmail.com</td>
+                        <td>Malang</td>
+                        <td>081234567890</td>
+                        <td>
+                            <button type="button">Edit</button>
+                            <button type="button" class="btn-hapus">
+                                Hapus
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Alya Putri</td>
+                        <td>AG002</td>
+                        <td>alya@gmail.com</td>
+                        <td>Malang</td>
+                        <td>081234567891</td>
+                        <td>
+                            <button type="button">Edit</button>
+                            <button type="button" class="btn-hapus">
+                                Hapus
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Rizky Maulana</td>
+                        <td>AG003</td>
+                        <td>rizky@gmail.com</td>
+                        <td>Malang</td>
+                        <td>081234567892</td>
+                        <td>
+                            <button type="button">Edit</button>
+                            <button type="button" class="btn-hapus">
+                                Hapus
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
         </section>
+
     </main>
+
 
     <footer>
         <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 3</p>
     </footer>
+
+
+    <script src="../assets/js/app.js"></script>
+
 </body>
+
 </html>
