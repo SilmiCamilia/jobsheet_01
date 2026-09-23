@@ -168,7 +168,7 @@ function initValidasiForm() {
             ) {
                 tampilkanError(
                     stok,
-                    "Stok harus berupa angka dan tidak boleh kurang dari 0."
+                    "Stok haruss berupa angka dan tidak boleh kurang dari 0."
                 );
 
                 valid = false;

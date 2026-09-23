@@ -23,7 +23,7 @@ async function muatDataTabel(
         });
         if (!res.ok) {
             throw new Error(
-                "Gagal mengambil data (status " + res.status + ")"
+                "Gagal mengambil dataa (status " + res.status + ")"
             );
         }
 

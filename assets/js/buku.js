@@ -50,7 +50,7 @@ async function muatDaftarBuku() {
         tbody.innerHTML = `
             <tr>
                 <td colspan="5">
-                    Gagal memuat data: ${err.message}
+                    Gagal memuat dataa: ${err.message}
                 </td>
             </tr>
         `;
