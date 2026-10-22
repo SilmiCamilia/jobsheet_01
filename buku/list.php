@@ -1,12 +1,13 @@
 <?php
 $page_title = "Daftar Buku";
 
+require __DIR__ . '/../includes/koneksi.php';
 include __DIR__ . '/../includes/header.php';
 
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);
 
-$daftarBuku = $_SESSION['buku'] ?? [];
+$daftarBuku = $pdo->query("SELECT * FROM buku ORDER BY id DESC")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <section>
@@ -20,23 +21,12 @@ $daftarBuku = $_SESSION['buku'] ?? [];
     <?php endif; ?>
 
     <div class="search-box">
-
-        <label for="search-input">
-            Cari Judul Buku
-        </label>
-
-        <input
-            type="text"
-            id="search-input"
-            placeholder="Ketik judul buku..."
-        >
-
+        <label for="search-input">Cari Judul Buku</label>
+        <input type="text" id="search-input" placeholder="Ketik judul buku...">
     </div>
 
     <div class="table-responsive">
-
         <table>
-
             <thead>
                 <tr>
                     <th>Judul</th>
@@ -46,84 +36,34 @@ $daftarBuku = $_SESSION['buku'] ?? [];
                     <th>Aksi</th>
                 </tr>
             </thead>
-
             <tbody>
-
                 <?php if (empty($daftarBuku)): ?>
-
                     <tr>
                         <td colspan="5">
-                            Belum ada data buku.
-                            Silakan tambah lewat menu
-                            "Tambah Buku".
+                            Belum ada data buku. Silakan tambah lewat menu "Tambah Buku".
                         </td>
                     </tr>
-
                 <?php else: ?>
-
-                    <?php foreach ($daftarBuku as $index => $buku): ?>
-
+                    <?php foreach ($daftarBuku as $buku): ?>
                         <tr>
-
+                            <td><?php echo htmlspecialchars($buku['judul'] ?? ''); ?></td>
+                            <td><?php echo htmlspecialchars($buku['pengarang'] ?? ''); ?></td>
+                            <td><?php echo htmlspecialchars((string) ($buku['tahun'] ?? '')); ?></td>
+                            <td><?php echo htmlspecialchars((string) ($buku['stok'] ?? '')); ?></td>
                             <td>
-                                <?php echo htmlspecialchars($buku['judul'] ?? ''); ?>
-                            </td>
-
-                            <td>
-                                <?php echo htmlspecialchars($buku['pengarang'] ?? ''); ?>
-                            </td>
-
-                            <td>
-                                <?php echo htmlspecialchars((string) ($buku['tahun'] ?? '')); ?>
-                            </td>
-
-                            <td>
-                                <?php echo htmlspecialchars((string) ($buku['stok'] ?? '')); ?>
-                            </td>
-
-                            <td>
-
-                                <button
-                                    type="button"
-                                    class="btn-edit"
-                                >
-                                    Edit
-                                </button>
-
-                                <form
-                                    action="proses_hapus.php"
-                                    method="post"
-                                    class="form-hapus"
-                                >
-
-                                    <input
-                                        type="hidden"
-                                        name="index"
-                                        value="<?php echo $index; ?>"
-                                    >
-
-                                    <button
-                                        type="submit"
-                                        class="btn-hapus"
-                                        data-nama="<?php echo htmlspecialchars($buku['judul'] ?? 'buku ini'); ?>"
-                                    >
+                                <button type="button" class="btn-edit">Edit</button>
+                                <form action="proses_hapus.php" method="post" class="form-hapus">
+                                    <input type="hidden" name="id" value="<?php echo $buku['id']; ?>">
+                                    <button type="submit" class="btn-hapus" data-nama="<?php echo htmlspecialchars($buku['judul'] ?? 'buku ini'); ?>">
                                         Hapus
                                     </button>
-
                                 </form>
-
                             </td>
-
                         </tr>
-
                     <?php endforeach; ?>
-
                 <?php endif; ?>
-
             </tbody>
-
         </table>
-
     </div>
 
 </section>
